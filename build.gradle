@@ -5,6 +5,7 @@ plugins {
   id "com.palantir.docker" version "0.19.2"
 }
 
+//  generates files that are used by IntelliJ IDEA
 apply plugin: "idea"
 
 version = "0.1.0"
@@ -20,12 +21,12 @@ node {
 
 def NPM_GROUP = "npm"
 
-task build(type: NpmTask, dependsOn: ':npmInstall') {
+task build(type: NpmTask, dependsOn: ":npmInstall") {
   group = NPM_GROUP
   args = ["run", "build"]
 }
 
-task start(type: NpmTask, dependsOn: ':npmInstall') {
+task start(type: NpmTask, dependsOn: ":npmInstall") {
   group = NPM_GROUP
   args = ["run", "start"]
 }
